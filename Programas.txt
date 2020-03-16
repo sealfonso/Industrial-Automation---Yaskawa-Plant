@@ -1,0 +1,72 @@
+N=0
+#LEDS
+SB1
+SB3
+CB2
+CB4
+WT1000
+CB1
+CB3
+SB2
+SB4
+WT1000
+N=N+1
+JP#LEDS, N<5
+EN
+
+
+
+AI-1
+#MA
+JG 50000
+PR 20000,-20000
+BGXY
+AMXY
+WT500
+JG 50000
+PR -20000,20000
+BGXY
+AMXY
+EN
+
+
+
+
+
+
+
+
+
+
+#CIRC		// Start of program 
+    // PR -500000		// Position relative move
+
+    // JG 100000,-100000
+    // BG 		// Begin motion
+    // AM		// Wait until motion is complete
+    VMAB                // Specify vector motion in the A and B plane
+    VS 100000            // Specify vector speed
+    CR 100000,0,360       // Generate circle with radius of 1000 counts, start at 0 degrees                                                   and complete one circle in counterclockwise direction.
+    CR 100000,0,360<40000 // Generate circle with radius of 1000 counts, start at 0 degrees                                                   and complete one circle in counterclockwise direction.
+    VE                  // End Sequence
+    BGS                 // Start motion   
+EN		// End of Program
+
+
+
+
+
+·· ultimo ---
+#CIRC		// Start of program 
+    // PR -500000		// Position relative move
+    //JG 100000,100000
+    //BG 		// Begin motion
+    //AM		// Wait until motion is complete
+    
+    VMAB                // Specify vector motion in the A and B plane
+    VS 100000            // Specify vector speed
+    CR 100000,0,360       // Generate circle with radius of 1000 counts, start at 0 degrees                                                   and complete one circle in counterclockwise direction.
+    CR 500000,0,360<40000 // Generate circle with radius of 1000 counts, start at 0 degrees                                                   and complete one circle in counterclockwise direction.
+    VE                  // End Sequence
+    BGS                 // Start motion   
+EN		// End of Program

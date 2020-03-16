@@ -1,0 +1,106 @@
+
+// MOVER ATRÁS 100000
+CB1
+CB2
+AI-1
+#MA
+    SB1
+    JG 50000
+    PR 100000,0
+    BGXY
+    AMXY
+    SB2
+EN
+
+
+
+// PUNTO 1
+
+CB1
+CB2
+AI-1
+#CIRC		// Start of program
+    SB1    
+    VMAB                // Specify vector motion in the A and B plane
+    VS 100000            // Specify vector speed
+    CR 100000,0,360       // Generate circle with radius of 1000 counts, start at 0 degrees                                                   and complete one circle in counterclockwise direction.
+    VS 100000            // Specify vector speed
+
+    CR 100000,0,360 // Generate circle with radius of 1000 counts, start at 0 degrees  
+    VS 100000            // Specify vector speed
+
+    CR 150000,0,360 // Generate circle with radius of 1000 counts, start at 0 degrees   
+    VE                  // End Sequence
+    BGS                 // Start motion
+    SB2   
+EN		// End of Program
+
+// PUNTO 2
+
+CB1
+CB2
+CB3
+CB4
+
+#POSHOME
+IF (@IN[1]=0); JP #POS1; ENDIF
+IF (@IN[2]=0); JP #POS2; ENDIF
+IF (@IN[3]=0); JP #POS3; ENDIF
+IF (@IN[4]=0); JP #POS4; ENDIF
+JP #POSHOME
+
+#POS1
+    AI-1
+    JG 50000,50000
+    PR 200000,200000
+    BGXY
+    AMXY
+    WT500
+    JG 50000,50000
+    PR -200000,-200000
+    BGXY
+    AMXY
+    SB1
+JP #POSHOME
+
+#POS2
+    AI-2
+    JG 500000,500000
+    PR 200000,0
+    BGXY
+    AMXY
+    WT500
+    JG 500000,500000
+    PR -200000,0
+    BGXY
+    AMXY
+    SB2
+JP #POSHOME
+
+#POS3
+    AI-3
+    JG 500000,500000
+    PR 0,200000
+    BGXY
+    AMXY
+    WT500
+    JG 500000,500000
+    PR 0,-200000
+    BGXY
+    AMXY
+    SB3
+JP #POSHOME
+
+#POS4
+    AI-4
+    JG 500000,500000
+    PR 300000,300000
+    BGXY
+    AMXY
+    WT500
+    JG 500000,500000
+    PR -300000,-300000
+    BGXY
+    AMXY
+    SB4
+JP #POSHOME
